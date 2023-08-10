@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using StudentApi.Models;
 using StudentApi.Repository.Interfaces;
 
 namespace StudentApi.Controllers
@@ -30,6 +31,18 @@ namespace StudentApi.Controllers
             }
 
             return Ok(student);
+        }
+
+
+        [HttpPost]
+        [Route("/create")]
+        public IActionResult CreateStudent(Student student)
+        {
+            _studentRepository.CreateStudent(student);
+
+            return CreatedAtRoute(null, null);
+
+
         }
     }
 }
