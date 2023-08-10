@@ -21,7 +21,8 @@ namespace StudentApi.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("/students/{id}")]
         public IActionResult GetStudent(int id)
         {
             var student = _studentRepository.getStudentById(id);
@@ -36,7 +37,7 @@ namespace StudentApi.Controllers
 
 
         [HttpPost]
-        [Route("/create")]
+        [Route("/students")]
         public IActionResult CreateStudent(Student student)
         {
             _studentRepository.CreateStudent(student);
@@ -47,7 +48,7 @@ namespace StudentApi.Controllers
         }
 
         [HttpPut]
-        [Route("/update/{id}")]
+        [Route("/students/{id}")]
 
         public IActionResult UpdateStudent(int id, Student student)
         {
@@ -66,7 +67,7 @@ namespace StudentApi.Controllers
 
 
         [HttpDelete]
-        [Route("/delete/{id}")]
+        [Route("/students/{id}")]
 
         public IActionResult DeleteStudent(int id, Student student)
         {
