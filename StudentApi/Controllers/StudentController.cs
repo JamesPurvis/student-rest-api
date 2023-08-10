@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StudentApi.Models;
+using StudentApi.Repository;
 using StudentApi.Repository.Interfaces;
 
 namespace StudentApi.Controllers
@@ -44,6 +45,43 @@ namespace StudentApi.Controllers
 
 
         }
+
+        [HttpPut]
+        [Route("/update/{id}")]
+
+        public IActionResult UpdateStudent(int id, Student student)
+        {
+            var _student = _studentRepository.getStudentById(id);
+
+            if (_student == null)
+            {
+                return NotFound();
+            }
+
+            _studentRepository.UpdateStudent(student);
+
+            return NoContent();
+        }
+
+
+
+        [HttpDelete]
+        [Route("/delete/{id}")]
+
+        public IActionResult DeleteStudent(int id, Student student)
+        {
+            var _student = _studentRepository.getStudentById(id);
+
+            if (_student == null)
+            {
+                return NotFound();
+            }
+
+            _studentRepository.DeleteStudent(id);
+
+            return StatusCode(StatusCodes.Status410Gone);
+        }
     }
 }
+
 
