@@ -1,10 +1,11 @@
 ﻿using System;
 using StudentApi.Database;
 using StudentApi.Models;
+using StudentApi.Repository.Interfaces;
 
 namespace StudentApi.Repository
 {
-	public class StudentRepository
+	public class StudentRepository : IStudentRepository
 	{
 		public void CreateStudent(Student student)
 		{
@@ -46,6 +47,8 @@ namespace StudentApi.Repository
 				return context.students.Find(id);
 			}
 		}
+
+		
 	}
 }
 

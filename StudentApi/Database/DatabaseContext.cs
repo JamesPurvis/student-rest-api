@@ -12,8 +12,10 @@ namespace StudentApi.Database
         {
             IConfiguration configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json")
+            .AddJsonFile("appSettings.js")
             .Build();
+
+          
 
             String Username = configuration["AppSettings:Username"];
             String Password = configuration["AppSettings:Password"];
