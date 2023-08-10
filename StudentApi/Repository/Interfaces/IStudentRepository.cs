@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
 using StudentApi.Models;
 
 namespace StudentApi.Repository.Interfaces
@@ -9,6 +10,7 @@ namespace StudentApi.Repository.Interfaces
 		void DeleteStudent(int id);
 		void UpdateStudent(Student student);
 		Student getStudentById(int id);
+		List<Student> returnAllStudents();
 
 
 	}

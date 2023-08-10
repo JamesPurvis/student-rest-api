@@ -20,6 +20,12 @@ namespace StudentApi.Controllers
             _studentRepository = studentRepository;
         }
 
+        [HttpGet]
+        [Route("/students")]
+        public IActionResult GetStudents()
+        {
+            return Ok(_studentRepository.returnAllStudents());
+        }
 
         [HttpGet]
         [Route("/students/{id}")]
